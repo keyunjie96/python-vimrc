@@ -43,7 +43,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-commentary'               " Comment stuff out
     Plug 'mitsuhiko/vim-sparkup'              " Sparkup(XML/jinja/htlm-django/etc.) support
     Plug 'Rykka/riv.vim'                      " ReStructuredText plugin
-    Plug 'Valloric/YouCompleteMe'             " Autocomplete plugin
+    "Plug 'Valloric/YouCompleteMe'             " Autocomplete plugin
 
     "-------------------=== Python  ===-----------------------------
     Plug 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
