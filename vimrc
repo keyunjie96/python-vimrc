@@ -8,9 +8,6 @@
 "                                                                              "
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
-let $vimhome=fnamemodify(resolve(expand("~/.vimrc")), ':p:h')
-let $vundle=$vimhome."/bundle/Vundle.vim"
-
 " Be iMproved
 set nocompatible
 
@@ -18,42 +15,41 @@ set nocompatible
 "" Vundle settings
 "=====================================================
 filetype off
-set rtp+=$vundle
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-    Plugin 'VundleVim/Vundle.vim'               " let Vundle manage Vundle, required
+    Plug 'VundleVim/Vundle.vim'               " let Vundle manage Vundle, required
 
     "-------------------=== Code/Project navigation ===-------------
-    Plugin 'scrooloose/nerdtree'                " Project and file navigation
-    Plugin 'majutsushi/tagbar'                  " Class/module browser
-    Plugin 'kien/ctrlp.vim'                     " Fast transitions on project files
+    Plug 'scrooloose/nerdtree'                " Project and file navigation
+    Plug 'majutsushi/tagbar'                  " Class/module browser
+    Plug 'kien/ctrlp.vim'                     " Fast transitions on project files
 
     "-------------------=== Other ===-------------------------------
-    Plugin 'bling/vim-airline'                  " Lean & mean status/tabline for vim
-    Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
-    Plugin 'Lokaltog/powerline'                 " Powerline fonts plugin
-    Plugin 'fisadev/FixedTaskList.vim'          " Pending tasks list
-    Plugin 'rosenfeld/conque-term'              " Consoles as buffers
-    Plugin 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
-    Plugin 'flazz/vim-colorschemes'             " Colorschemes
+    Plug 'bling/vim-airline'                  " Lean & mean status/tabline for vim
+    Plug 'vim-airline/vim-airline-themes'     " Themes for airline
+    Plug 'Lokaltog/powerline'                 " Powerline fonts plugin
+    Plug 'fisadev/FixedTaskList.vim'          " Pending tasks list
+    Plug 'rosenfeld/conque-term'              " Consoles as buffers
+    Plug 'tpope/vim-surround'                 " Parentheses, brackets, quotes, XML tags, and more
+    Plug 'flazz/vim-colorschemes'             " Colorschemes
 
     "-------------------=== Snippets support ===--------------------
-    Plugin 'garbas/vim-snipmate'                " Snippets manager
-    Plugin 'MarcWeber/vim-addon-mw-utils'       " dependencies #1
-    Plugin 'tomtom/tlib_vim'                    " dependencies #2
-    Plugin 'honza/vim-snippets'                 " snippets repo
+    Plug 'garbas/vim-snipmate'                " Snippets manager
+    Plug 'MarcWeber/vim-addon-mw-utils'       " dependencies #1
+    Plug 'tomtom/tlib_vim'                    " dependencies #2
+    Plug 'honza/vim-snippets'                 " snippets repo
 
     "-------------------=== Languages support ===-------------------
-    Plugin 'tpope/vim-commentary'               " Comment stuff out
-    Plugin 'mitsuhiko/vim-sparkup'              " Sparkup(XML/jinja/htlm-django/etc.) support
-    Plugin 'Rykka/riv.vim'                      " ReStructuredText plugin
-    Plugin 'Valloric/YouCompleteMe'             " Autocomplete plugin
+    Plug 'tpope/vim-commentary'               " Comment stuff out
+    Plug 'mitsuhiko/vim-sparkup'              " Sparkup(XML/jinja/htlm-django/etc.) support
+    Plug 'Rykka/riv.vim'                      " ReStructuredText plugin
+    Plug 'Valloric/YouCompleteMe'             " Autocomplete plugin
 
     "-------------------=== Python  ===-----------------------------
-    Plugin 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
-    Plugin 'scrooloose/syntastic'               " Syntax checking plugin for Vim
+    Plug 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
+    Plug 'scrooloose/syntastic'               " Syntax checking plugin for Vim
 
-call vundle#end()                           " required
+call plug#end()
 filetype on
 filetype plugin on
 filetype plugin indent on
