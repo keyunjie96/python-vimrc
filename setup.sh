@@ -69,9 +69,10 @@ echo "${NORMAL}"
   printf "${BLUE}%s${NORMAL}\n" "Symlinking $VIM/vimrc with ~/.vimrc..."
   ln -fs $VIM/vimrc ~/.vimrc
 
-  if [ ! -d "$VIM/bundle/Vundle.vim" ]; then
-      printf "${BLUE}%s${NORMAL}\n" "Installing Vundle..."
-      env git clone --depth=1 $VUNDLE_HTTPS "$VIM/bundle/Vundle.vim"
+  if [ ! -d "$VIM/autoload/plug.vim" ]; then
+      printf "${BLUE}%s${NORMAL}\n" "Installing vim-plug..."
+      curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   fi
 
   if [ ! -f $VIM/colors/wombat256mod.vim ]; then
