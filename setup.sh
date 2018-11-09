@@ -53,6 +53,9 @@ echo "${NORMAL}"
     printf "${RED}%s${NORMAL}\n" "Error: git is not installed."
     exit 1
   }
+  
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
   env git clone --depth=1 $REPO_HTTPS $VIM || {
     printf "${RED}%s${NORMAL}\n" "Error: git clone of vimrc repo failed."
