@@ -31,6 +31,7 @@ echo "${NORMAL}"
 
   if [ ! -n "$VIM" ]; then
     VIM=~/.vim
+    VIM_ENV=$VIM/python-vim
   fi
 
   if [ -d "$VIM" ]; then
@@ -51,12 +52,9 @@ echo "${NORMAL}"
   hash git >/dev/null 2>&1 || {
     printf "${RED}%s${NORMAL}\n" "Error: git is not installed."
     exit 1
-  }
-  
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  } 
 
-  env git clone --depth=1 $REPO_HTTPS $VIM || {
+  env git clone --depth=1 $REPO_HTTPS $VIM_ENV || {
     printf "${RED}%s${NORMAL}\n" "Error: git clone of vimrc repo failed."
     exit 1
   }
@@ -64,12 +62,12 @@ echo "${NORMAL}"
   printf "${BLUE}%s${NORMAL}\n" "Looking for an existing vim config..."
   if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
     printf "${YELLOW}%s${NORMAL}\n" "Found ~/.vimrc."
-    printf "${BLUE}%s${NORMAL}\n" "You will see your old ~/.vimrc as $VIM/vimrc.bak"
-    mv ~/.vimrc $VIM/vimrc.bak
+    printf "${BLUE}%s${NORMAL}\n" "You will see your old ~/.vimrc as $VIM_ENV/vimrc.bak"
+    mv ~/.vimrc $VIM_ENV/vimrc.bak
   fi
 
   printf "${BLUE}%s${NORMAL}\n" "Symlinking $VIM/vimrc with ~/.vimrc..."
-  ln -fs $VIM/vimrc ~/.vimrc
+  ln -fs $VIM_ENV/vimrc ~/.vimrc
 
   if [ ! -d "$VIM/autoload/plug.vim" ]; then
       printf "${BLUE}%s${NORMAL}\n" "Installing vim-plug..."
@@ -90,4 +88,4 @@ echo "${NORMAL}"
 }
 
 wrapper
-vim +PluginInstall
+vim +PlugInstall
