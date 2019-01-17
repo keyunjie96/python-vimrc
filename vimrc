@@ -46,7 +46,7 @@ call plug#begin('~/.vim/plugged')
     "Plug 'Valloric/YouCompleteMe'             " Autocomplete plugin
 
     "-------------------=== Python  ===-----------------------------
-    Plug 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
+    "Plug 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
     Plug 'scrooloose/syntastic'               " Syntax checking plugin for Vim
 
 call plug#end()
@@ -123,7 +123,7 @@ let g:airline_powerline_fonts=1
 let g:tagbar_autofocus=0
 let g:tagbar_width=42
 autocmd BufEnter *.py :call tagbar#autoopen(0)
-autocmd BufWinLeave *.py :TagbarClose
+" autocmd BufWinLeave *.py :TagbarClose
 
 "=====================================================
 "" NERDTree settings
